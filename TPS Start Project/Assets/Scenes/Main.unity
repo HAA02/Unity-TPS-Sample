@@ -199,7 +199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199868541}
-  m_LocalRotation: {x: -0.007491878, y: 0.1998015, z: 0.0015277391, w: 0.9798066}
+  m_LocalRotation: {x: -0.0074918666, y: 0.1998015, z: 0.0015277368, w: 0.9798066}
   m_LocalPosition: {x: 5, y: 1.5, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -380,6 +380,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
+--- !u!198 &214510648 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198000010131513902, guid: 8e60b325a019543cbb2e3920522a2e6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 214510647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &247759975
 GameObject:
   m_ObjectHideFlags: 3
@@ -446,7 +452,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247759975}
-  m_LocalRotation: {x: -0.0074918694, y: 0.19980146, z: 0.0015277284, w: 0.9798066}
+  m_LocalRotation: {x: -0.007491865, y: 0.19980146, z: 0.0015277276, w: 0.9798066}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -889,6 +895,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+        type: 3}
+      propertyPath: shellEjectEffect
+      value: 
+      objectReference: {fileID: 214510648}
+    - target: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+        type: 3}
+      propertyPath: muzzleFlashEffect
+      value: 
+      objectReference: {fileID: 2053549569}
     - target: {fileID: 7573107372154840280, guid: e0340c77c6f6e4b4abdcff780b356124,
         type: 3}
       propertyPath: targetToFollow
@@ -2271,6 +2287,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+--- !u!198 &2053549569 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2053549568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2099765877
 GameObject:
   m_ObjectHideFlags: 0
