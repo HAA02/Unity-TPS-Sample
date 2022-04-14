@@ -32,7 +32,9 @@ public class PlayerShooter : MonoBehaviour
 
     private void Start()
     {
-
+        playerCamera = Camera.main;
+        playerInput = GetComponent<PlayerInput>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -60,22 +62,69 @@ public class PlayerShooter : MonoBehaviour
 
     private void Update()
     {
+        UpdateAimTarget();
 
+        var angle = playerCamera.transform.eulerAngles.x;
+        if (angle > 270f) angle -= 360f;
+
+        angle = angle / -180f + 0.5f;
+        playerAnimator.SetFloat("Angle", angle);
     }
 
     public void Shoot()
     {
+        if(aimState == AimState.Idle)
+        {
+            if (linedUp) aimState = AimState.HipFire;
+        }
+        else if(aimState == AimState.HipFire)
+        {
+            if(hasEnoughDistance)
+            {
+                if(gun.Fire(aimPoint))
+                {
+                    playerAnimator.SetTrigger("Shoot");
+                }
+            }
+
+            else
+            {
+                aimState = AimState.Idle;
+            }
+        }
 
     }
 
     public void Reload()
     {
-        
+        if(gun.Reload())
+        {
+            playerAnimator.SetTrigger("Reload");
+        }
+
     }
 
     private void UpdateAimTarget()
     {
- 
+        RaycastHit hit;
+
+        var ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if(Physics.Raycast(ray, out hit, gun.fireDistance, ~excludeTarget))
+        {
+            aimPoint = hit.point;
+
+            if(Physics.Linecast(gun.fireTransform.position, hit.point, out hit, ~excludeTarget))
+            {
+                aimPoint = hit.point;
+            }
+        }
+
+        else
+        {
+            aimPoint = playerCamera.transform.position + playerCamera.transform.forward * gun.fireDistance;
+        }
+
     }
 
     private void UpdateUI()
@@ -90,6 +139,13 @@ public class PlayerShooter : MonoBehaviour
 
     private void OnAnimatorIK(int layerIndex)
     {
+        if (gun == null || gun.state == Gun.State.Reloading) return;
 
+        playerAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
+        playerAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
+
+        playerAnimator.SetIKPosition(AvatarIKGoal.LeftHand, gun.leftHandMount.position);
+        playerAnimator.SetIKRotation(AvatarIKGoal.LeftHand, gun.leftHandMount.rotation);
+        
     }
 }
