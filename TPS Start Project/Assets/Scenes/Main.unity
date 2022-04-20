@@ -2208,6 +2208,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1944242262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7573107372154840279, guid: e0340c77c6f6e4b4abdcff780b356124,
+    type: 3}
+  m_PrefabInstance: {fileID: 818593049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ee64309156642038d503f446370f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2053549568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2478,10 +2490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4c4df7136f04104bb11c3c14052bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 0}
+  gun: {fileID: 1944242262}
   excludeTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!4 &8417408243914003131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2365080582167643483, guid: 4411154cbfe80834db3c6179a26bbd92,
